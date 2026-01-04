@@ -1,0 +1,18 @@
+{
+  "name": "@prettier/plugin-mdx2",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "fisker <lionkay@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.7.4",
+    "vitest": "^4.0.16"
+  },
+  "files": [
+    "lib"
+  ],
+  "exports": "./lib/index.js",
+  "preferUnplugged": true,
+  "packageManager": "yarn@4.12.0",
+  "sideEffects": false
+}
