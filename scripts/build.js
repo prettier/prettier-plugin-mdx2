@@ -67,6 +67,10 @@ await fs.copyFile(
   new URL("../license", import.meta.url),
   new URL("../dist/license", import.meta.url),
 );
+await fs.copyFile(
+  new URL("../index.d.ts", import.meta.url),
+  new URL("../dist/index.d.ts", import.meta.url),
+);
 await fs.writeFile(
   new URL("../dist/package.json", import.meta.url),
   JSON.stringify(
@@ -78,6 +82,8 @@ await fs.writeFile(
       devDependencies: undefined,
       type: "commonjs",
       exports: {
+        types: "./index.d.ts",
+        "module-sync": "./index..mjs",
         require: "./index.js",
         default: "./index.mjs",
       },
