@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  - push
+  - pull_request
+
+permissions:
+  contents: read
+
+env:
+  YARN_IGNORE_NODE: 1
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - '22'
+          - '20'
+    name: Node.js ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
+      - run: yarn install --immutable
+      - run: yarn run test
+        env:
+          ENABLE_COVERAGE: 1
+      - uses: codecov/codecov-action@v5
+        with:
+          fail_ci_if_error: true
+          disable_search: true
+          files: coverage/lcov.info
+          token: ${{ secrets.CODECOV_TOKEN }}
