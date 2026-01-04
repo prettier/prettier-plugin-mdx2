@@ -6,7 +6,7 @@
 > Prettier plugin for MDX1.
 
 > [!IMPORTANT]
-> This plugin extracted for MDX1 users from prettier<=3.7.
+> This plugin extracted for MDX1 users from prettier v3.7.
 >
 > Please migrate to MDX3, and use the builtin parser if possible.
 >
