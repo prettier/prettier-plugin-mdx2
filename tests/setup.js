@@ -3,14 +3,14 @@ import fs, { promises as fsPromises } from "node:fs";
 import path from "node:path";
 import * as prettier from "prettier";
 import { test, expect } from "vitest";
-import * as prettierPluginMdx2 from "../lib/index.js";
+import * as prettierPluginMdx1 from "../lib/index.js";
 import createSnapshot from "./utilities/create-snapshot.js";
 import stringifyOptionsForTitle from "./utilities/stringify-options-for-title.js";
 
 async function format(code, options) {
   return prettier.format(code, {
     parser: "mdx",
-    plugins: [prettierPluginMdx2],
+    plugins: [prettierPluginMdx1],
     ...options,
   });
 }

@@ -37,7 +37,7 @@ function bundle(format) {
       esbuildPluginReplaceModule({ replacements: moduleReplacements }),
       format === "esm" ? esbuildPluginAddDefaultExport() : undefined,
       format === "umd"
-        ? esbuildPluginUmd({ name: "prettierPlugins.mdx2" })
+        ? esbuildPluginUmd({ name: "prettierPlugins.mdx1" })
         : undefined,
     ].filter(Boolean),
     legalComments: "none",
